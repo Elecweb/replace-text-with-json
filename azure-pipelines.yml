@@ -29,7 +29,7 @@ stages:
           - task: QueryAzureDevOpsExtensionVersion@3
             inputs:
               connectTo: 'VsTeam'
-              connectedServiceName: 'ServiceConnection'
+              connectedServiceName: 'Marketplace'
               publisherId: '$(PublisherID)'
               extensionId: '$(ExtensionID)'
               versionAction: 'Patch'
@@ -71,7 +71,7 @@ stages:
           - task: PublishAzureDevOpsExtension@3
             inputs:
               connectTo: 'VsTeam'
-              connectedServiceName: 'ServiceConnection'
+              connectedServiceName: 'Marketplace'
               fileType: 'vsix'
               vsixFile: '/Publisher.*.vsix'
               publisherId: '$(PublisherID)'
