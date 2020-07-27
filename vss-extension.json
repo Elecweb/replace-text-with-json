@@ -1,0 +1,36 @@
+{
+    "manifestVersion": 1,
+    "id": "replace-text-with-json",
+    "name": "Replace text with json format",
+    "version": "0.0.4",
+    "publisher": "Elecweb",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Replace text with json format",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "icons": {
+        "default": "images/luggage.png"        
+    },
+    "files": [
+        {
+            "path": "task"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "replace-text-with-json",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "task"
+            }
+        }
+    ]
+}
