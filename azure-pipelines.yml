@@ -24,8 +24,8 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                cd task
-                tsc
+                tsc task/index.ts --outFile task/task.js
+                webpack
           - task: QueryAzureDevOpsExtensionVersion@3
             inputs:
               connectTo: 'VsTeam'
