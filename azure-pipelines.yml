@@ -1,82 +1,82 @@
 trigger: 
-  - master
+- master
   
-  pool:
-    vmImage: "ubuntu-latest"
-  
-  variables:
-    - group: "devops extension"
-  
-  stages:
-    - stage: Package_extension_and_ publish_ build_artifacts
-      jobs:
-        - job:
-          steps:
-            - task: TfxInstaller@2
-              inputs:
-                version: "v0.7.x"
-            - task: Npm@1
-              inputs:
-                command: 'install'
-                workingDir: '/'
-            - task: Bash@3
-              displayName: Compile Javascript
-              inputs:
-                targetType: "inline"
-                script: |
-                  cd task
-                  tsc
-            - task: QueryAzureDevOpsExtensionVersion@3
-              inputs:
-                connectTo: 'VsTeam'
-                connectedServiceName: 'ServiceConnection'
-                publisherId: '$(PublisherID)'
-                extensionId: '$(ExtensionID)'
-                versionAction: 'Patch'
-                outputVariable: 'Task.Extension.Version'
-            - task: PackageAzureDevOpsExtension@3
-              inputs:
-                rootFolder: '$(System.DefaultWorkingDirectory)'
-                publisherId: '$(PublisherID)'
-                extensionId: '$(ExtensionID)'
-                extensionName: '$(ExtensionName)'
-                extensionVersion: '$(Task.Extension.Version)'
-                updateTasksVersion: true
-                updateTasksVersionType: 'patch'
-                extensionVisibility: 'private'
-                extensionPricing: 'free'
-            - task: CopyFiles@2
-              displayName: "Copy Files to: $(Build.ArtifactStagingDirectory)"
-              inputs:
-                Contents: "**/*.vsix"
-                TargetFolder: "$(Build.ArtifactStagingDirectory)"
-            - task: PublishBuildArtifacts@1
-              inputs:
-                PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-                ArtifactName: '$(ArtifactName)'
-                publishLocation: 'Container'
-    - stage: Download_build_artifacts_and_ publish_the_extension
-      jobs:
-        - job:
-          steps:
-            - task: TfxInstaller@2
-              inputs:
-                version: "v0.7.x"
-            - task: DownloadBuildArtifacts@0
-              inputs:
-                buildType: "current"
-                downloadType: "single"
-                artifactName: "$(ArtifactName)"
-                downloadPath: "$(System.DefaultWorkingDirectory)"
-            - task: PublishAzureDevOpsExtension@3
-              inputs:
-                connectTo: 'VsTeam'
-                connectedServiceName: 'ServiceConnection'
-                fileType: 'vsix'
-                vsixFile: '/Publisher.*.vsix'
-                publisherId: '$(PublisherID)'
-                extensionId: '$(ExtensionID)'
-                extensionName: '$(ExtensionName)'
-                updateTasksVersion: false
-                extensionVisibility: 'private'
-                extensionPricing: 'free'
+pool:
+  vmImage: "ubuntu-latest"
+
+variables:
+  - group: "devops extension"
+
+stages:
+  - stage: Package_extension_and_ publish_ build_artifacts
+    jobs:
+      - job:
+        steps:
+          - task: TfxInstaller@2
+            inputs:
+              version: "v0.7.x"
+          - task: Npm@1
+            inputs:
+              command: 'install'
+              workingDir: '/'
+          - task: Bash@3
+            displayName: Compile Javascript
+            inputs:
+              targetType: "inline"
+              script: |
+                cd task
+                tsc
+          - task: QueryAzureDevOpsExtensionVersion@3
+            inputs:
+              connectTo: 'VsTeam'
+              connectedServiceName: 'ServiceConnection'
+              publisherId: '$(PublisherID)'
+              extensionId: '$(ExtensionID)'
+              versionAction: 'Patch'
+              outputVariable: 'Task.Extension.Version'
+          - task: PackageAzureDevOpsExtension@3
+            inputs:
+              rootFolder: '$(System.DefaultWorkingDirectory)'
+              publisherId: '$(PublisherID)'
+              extensionId: '$(ExtensionID)'
+              extensionName: '$(ExtensionName)'
+              extensionVersion: '$(Task.Extension.Version)'
+              updateTasksVersion: true
+              updateTasksVersionType: 'patch'
+              extensionVisibility: 'private'
+              extensionPricing: 'free'
+          - task: CopyFiles@2
+            displayName: "Copy Files to: $(Build.ArtifactStagingDirectory)"
+            inputs:
+              Contents: "**/*.vsix"
+              TargetFolder: "$(Build.ArtifactStagingDirectory)"
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              ArtifactName: '$(ArtifactName)'
+              publishLocation: 'Container'
+  - stage: Download_build_artifacts_and_ publish_the_extension
+    jobs:
+      - job:
+        steps:
+          - task: TfxInstaller@2
+            inputs:
+              version: "v0.7.x"
+          - task: DownloadBuildArtifacts@0
+            inputs:
+              buildType: "current"
+              downloadType: "single"
+              artifactName: "$(ArtifactName)"
+              downloadPath: "$(System.DefaultWorkingDirectory)"
+          - task: PublishAzureDevOpsExtension@3
+            inputs:
+              connectTo: 'VsTeam'
+              connectedServiceName: 'ServiceConnection'
+              fileType: 'vsix'
+              vsixFile: '/Publisher.*.vsix'
+              publisherId: '$(PublisherID)'
+              extensionId: '$(ExtensionID)'
+              extensionName: '$(ExtensionName)'
+              updateTasksVersion: false
+              extensionVisibility: 'private'
+              extensionPricing: 'free'
