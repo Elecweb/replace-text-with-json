@@ -73,7 +73,7 @@ stages:
               connectTo: 'VsTeam'
               connectedServiceName: 'Marketplace'
               fileType: 'vsix'
-              vsixFile: '/Publisher.*.vsix'
+              vsixFile: '/Elecweb.*.vsix'
               publisherId: '$(PublisherID)'
               extensionId: '$(ExtensionID)'
               extensionName: '$(ExtensionName)'
