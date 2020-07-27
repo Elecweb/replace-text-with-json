@@ -12,7 +12,7 @@ stages:
     jobs:
       - job:
         steps:
-          - task: TfxInstaller@2
+          - task: TfxInstaller@3
             inputs:
               version: "v0.7.x"
           - task: Npm@1
@@ -59,7 +59,7 @@ stages:
     jobs:
       - job:
         steps:
-          - task: TfxInstaller@2
+          - task: TfxInstaller@3
             inputs:
               version: "v0.7.x"
           - task: DownloadBuildArtifacts@0
