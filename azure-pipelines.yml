@@ -18,7 +18,7 @@ stages:
           - task: Npm@1
             inputs:
               command: 'install'
-              workingDir: '/'
+              workingDir: '$(System.DefaultWorkingDirectory)'
           - task: Bash@3
             displayName: Compile Javascript
             inputs:
