@@ -1,0 +1,19 @@
+{
+  "name": "replace-text-with-json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "azure-pipelines-task-lib": "^2.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.26",
+    "@types/q": "^1.5.4",
+    "tfx-cli": "^0.8.1"
+  }
+}
