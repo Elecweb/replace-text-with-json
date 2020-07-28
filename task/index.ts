@@ -18,9 +18,14 @@ async function run() {
     const keyValueArr = keyValue.split("\n").map((item) => item.trim());
     const keyValueObj = keyValueArr.reduce((keyValueObj, item) => {
       const [key, value] = item.split("=");
+
+      const valueFromVar = value.replace(/#{(\w+)}/g, (_, item) => {
+        return tl.getVariable(item);
+      });
+
       return {
         ...keyValueObj,
-        [key]: value,
+        [key]: valueFromVar,
       };
     }, {});
 
