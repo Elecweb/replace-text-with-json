@@ -51,7 +51,10 @@
         }
     ],
     "content": {
-        "details": { "path": "README.md" }
+        "details": { "path": "README.md" },
+        "license": {
+            "path": "LICENSE.txt"
+        }
     },
     "contributions": [
         {
