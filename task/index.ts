@@ -6,6 +6,7 @@ async function run() {
     // const keyValue: string | undefined = tl.getInput("keyValue", true);
     // const keyValue = "john=doe\nsheep=keep\nphung=god";
     const keyValue: string = tl.getInput("keyValue");
+    const replacedRegexString: string = tl.getInput("replacedRegex");
     // const rootDir = "/Users/napat/Documents/works/replace-text-with-json";
     const rootDir: string = tl.getInput("rootDir");
     // const sourcePath = "index.html";
@@ -29,8 +30,10 @@ async function run() {
       };
     }, {});
 
+    const replactedRegex = new RegExp(replacedRegexString, "g");
+
     const replacedContents = contents.replace(
-      /"@RUNTIME_ENV"/g,
+      replactedRegex,
       JSON.stringify(keyValueObj)
     );
 

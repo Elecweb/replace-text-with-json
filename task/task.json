@@ -20,6 +20,14 @@
             "label": "root dir"
         },
         {
+            "name": "replacedRegex",
+            "type": "string",
+            "label": "Regex finding word being replaced",
+            "defaultValue": "\"@RUNTIME_ENV\"",
+            "required": true,
+            "helpMarkDown": "Regex finding word being replaced. It'll be passed to `new RegExp()`"
+        },
+        {
             "name": "source",
             "type": "string",
             "label": "source path relative to root dir",
