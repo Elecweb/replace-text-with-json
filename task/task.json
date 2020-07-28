@@ -39,8 +39,8 @@
            "name":"keyValue",
            "type": "multiLine",
            "label": "key value pair",
-           "helpMarkDown": "using format 'key=value' and seperate each key value pair by new line.",
-           "defaultValue": "keyname1=value1\nkeyname2=value2"
+           "helpMarkDown": "using format 'key=value' and seperate each key value pair by new line. You can pass variable with #{var} for value.",
+           "defaultValue": "keyname1=value1\nkeyname2=#{somevar}"
        }
     ],
     "execution": {
