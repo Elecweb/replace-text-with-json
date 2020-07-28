@@ -4,6 +4,7 @@
     "name": "Replace text with json format",
     "version": "0.0.4",
     "publisher": "Elecweb",
+    "public": true,
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
