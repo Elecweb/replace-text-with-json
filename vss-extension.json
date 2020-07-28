@@ -5,6 +5,9 @@
     "version": "0.0.4",
     "publisher": "Elecweb",
     "public": true,
+    "galleryFlags": [
+        "Public"
+    ],
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
