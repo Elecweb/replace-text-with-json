@@ -14,11 +14,15 @@
         "Azure Pipelines"
     ],
     "icons": {
-        "default": "images/luggage.png"        
+        "default": "images/icon.png"        
     },
     "files": [
         {
             "path": "task"
+        },
+        {
+            "path": "images",
+            "addressable": true
         }
     ],
     "contributions": [
