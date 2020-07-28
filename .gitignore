@@ -3,3 +3,4 @@ node_modules
 index.html
 task/index.js
 task/task.js
+.DS_Store

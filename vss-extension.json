@@ -11,7 +11,19 @@
     ],    
     "description": "Replace text with json format",
     "categories": [
-        "Azure Pipelines"
+        "Build and release"
+    ],
+    "tags": [
+        "release",
+        "build",
+        "environment",
+        "replace",
+        "variable",
+        "substitution",
+        "runtime"
+    ],
+    "screenshots": [
+        { "path": "images/screenshot-01.png" }
     ],
     "icons": {
         "default": "images/icon.png"        
@@ -25,6 +37,9 @@
             "addressable": true
         }
     ],
+    "content": {
+        "details": { "path": "README.md" }
+    },
     "contributions": [
         {
             "id": "replace-text-with-json",
