@@ -20,7 +20,9 @@
         "replace",
         "variable",
         "substitution",
-        "runtime"
+        "runtime",
+        "react",
+        "SPA"
     ],
     "screenshots": [
         { "path": "images/screenshot-01.png" }
