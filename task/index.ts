@@ -19,7 +19,7 @@ async function run() {
     const keyValueObj = keyValueArr.reduce((keyValueObj, item) => {
       const [key, value] = item.split("=");
 
-      const valueFromVar = value.replace(/#{(\w+)}/g, (_, item) => {
+      const valueFromVar = value.replace(/#{([a-zA-Z0-9_-]+)}/g, (_, item) => {
         return tl.getVariable(item);
       });
 
