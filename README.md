@@ -51,6 +51,23 @@ You can then reference `window.RUNTIME_ENV` in your code.
 
     As you can see, you can also provide Azure devops variable by with `#{yourVar}.
 
+## Development in local, how we handle ?
 
+You can use environment variable for development. You can write simple check like this
 
+```js
+    const apiUrl = typeof window.RUNTIME_ENV === "string" ? process.env.API_URL : window.RUNTIME_ENV.API_URL
+```
 
+or you can create util function for get variable.
+
+```js
+  const getEnvValue = (key) => {
+      if (typeof window.RUNTIME_ENV === "string") {
+          return process.env[key];
+      } else {
+          return window.RUNTIME_ENV[key]
+      }
+  };
+
+```
