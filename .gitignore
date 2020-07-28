@@ -1,3 +1,5 @@
 node_modules
 .taskkey
 index.html
+task/index.js
+task/task.js
