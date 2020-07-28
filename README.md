@@ -10,44 +10,44 @@ This task work as title say, it replace text with JSON. It can use for inject va
 
 - First you need to provide placeholder in `index.html`
 
-```html
-    <script>
-      window.RUNTIME_ENV = "@RUNTIME_ENV";
-    </script>
-```
+    ```html
+        <script>
+            window.RUNTIME_ENV = "@RUNTIME_ENV";
+        </script>
+    ```
 
-You can then reference `window.RUNTIME_ENV` in your code.
+    You can then reference `window.RUNTIME_ENV` in your code.
 
-- In Build or Release pipeline add this task add input following inputs (no pun intended).
+- In Build or Release pipeline, add this task add input following inputs (no pun intended).
 
     - rootDir
 
-    where is your artifact folder.
+        where is your artifact folder.
 
     - replacedRegex
     
-    `"@RUNTIME_ENV"`
+        `"@RUNTIME_ENV"`
 
-    placeholder text that'll be replaced with JSON
+        placeholder text that'll be replaced with JSON
 
     - source
 
-    `index.html`
+        `index.html`
 
-    source path relative to rootDir. souce is where placeholder is placed on and will be replaced
+        source path relative to rootDir. souce is where placeholder is placed on and will be replaced
 
     - keyValue
 
-    `API_URL=#{API_VAR_FROM_AZ_DEVOPS} \n UA_GG_ANALYTIC=ua-2345678`
+        `API_URL=#{API_VAR_FROM_AZ_DEVOPS} \n UA_GG_ANALYTIC=ua-2345678`
 
-    multiline text will convert to JSON. it seperate each key value by new line. for above case it'll be JSON like this.
+        multiline text will convert to JSON. it seperate each key value by new line. for above case it'll be JSON like this.
 
-    ```js
-       window.RUNTIME_ENV = {
-           API_URL: "api.exampble.com",
-           UA_GG_ANALYTIC: "ua-2345678"
-       };
-    ```
+        ```js
+        window.RUNTIME_ENV = {
+            API_URL: "api.exampble.com",
+            UA_GG_ANALYTIC: "ua-2345678"
+        };
+        ```
 
     As you can see, you can also provide Azure devops variable by with `#{yourVar}.
 
@@ -59,7 +59,7 @@ You can use environment variable for development. You can write simple check lik
     const apiUrl = typeof window.RUNTIME_ENV === "string" ? process.env.API_URL : window.RUNTIME_ENV.API_URL
 ```
 
-or you can create util function for get variable.
+You can go further by create utility function for getting value.
 
 ```js
   const getEnvValue = (key) => {
