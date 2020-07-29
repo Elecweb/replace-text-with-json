@@ -4,7 +4,7 @@
     "name": "replace-text-with-json",
     "friendlyName": "Replace text with json format",
     "description": "Replace text with json format",
-    "helpMarkDown": "",
+    "helpMarkDown": "[More Information](https://marketplace.visualstudio.com/items?itemName=Elecweb.replace-text-with-json&ssr=false#overview)",
     "category": "Utility",
     "author": "Elecweb",
     "version": {
