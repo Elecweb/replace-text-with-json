@@ -14,8 +14,8 @@
         }
     ],
     "branding": {
-        "color": "#82E8E2",
-        "theme": "light"
+        "color": "#01322F",
+        "theme": "dark"
     },
     "description": "Replace text with json format [Learn more](https://marketplace.visualstudio.com/items?itemName=Elecweb.replace-text-with-json)",
     "categories": [
@@ -45,9 +45,6 @@
         {
             "path": "images",
             "addressable": true
-        },
-        {
-            "path": "icon.png"
         }
     ],
     "content": {
