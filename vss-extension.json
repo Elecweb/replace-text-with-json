@@ -44,7 +44,7 @@
         },
         {
             "path": "images",
-            "addressable": true,
+            "addressable": true
         },
         {
             "path": "icon.png"
